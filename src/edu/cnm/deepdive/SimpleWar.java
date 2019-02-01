@@ -30,19 +30,20 @@ public class SimpleWar {
       int comparison = referree.compare(card1, card2);
       if (comparison == 0) {
         tied = true;
-        System.out.println(" (push) ");
+        System.out.println(" (push)");
         for (int i = 0; i < 3; i++) {
           deck.deal();
           deck.deal();
+          System.out.println("  ?  :   ?");
           pairsDealt++;
         }
       } else if (comparison > 0) {
         tied = false;
-        System.out.println("(Player 1)");
+        System.out.println(" (player 1)");
         tally1 += 2 * pairsDealt;
       } else {
         tied = false;
-        System.out.println("(Player 2)");
+        System.out.println(" (player 2)");
         tally2 += 2 * pairsDealt;
       }
     } while (tied);
@@ -64,8 +65,16 @@ public class SimpleWar {
     return tally1;
   }
 
+  protected void setTally1(int tally1) {
+    this.tally1 = tally1;
+  }
+
   protected int getTally2() {
     return tally2;
+  }
+
+  protected void setTally2(int tally2) {
+    this.tally2 = tally2;
   }
 
   public static void main(String[] args) {
